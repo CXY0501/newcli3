@@ -25,6 +25,6 @@ export default {
     margin-right: 10px;
   }
   .router-link-active{
-    color: blue;
+    color: red;
   }
 </style>
