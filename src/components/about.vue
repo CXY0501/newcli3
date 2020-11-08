@@ -11,6 +11,9 @@ export default{
   data(){
     return{}
   },
+  // created(){
+  //   document.title= 'ABOUT'
+  // },
   methods:{
   }
 }

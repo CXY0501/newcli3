@@ -15,6 +15,9 @@ const router = new VueRouter({
         {
             path:'/home',
             component:  () => import ('../components/home'),
+            meta:{
+                title: 'HOME'
+            },
             children:[
                 {
                     path:'',
@@ -32,14 +35,25 @@ const router = new VueRouter({
         },
         {
             path:'/about',
-            component: () => import ('../components/about')
+            component: () => import ('../components/about'),
+            meta:{
+                title: 'ABOUT'
+            },
         },
         {
             path:'/profile',
-            component: () => import ('../components/profile')
+            component: () => import ('../components/profile'),
+            meta:{
+                title: 'PROFILE'
+            },
         }
     ],
     mode:'history'
+})
+
+router.beforeEach((to,from,next) => {
+    document.title = to.matched[0].meta.title
+    next()  
 })
 
 export default router

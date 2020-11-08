@@ -11,6 +11,9 @@ export default{
   data(){
     return{}
   },
+  // created(){
+  //   document.title= 'PROFILE'
+  // },
   computed:{
     userId(){
       return this.$route.query.name
