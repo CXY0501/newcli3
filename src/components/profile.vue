@@ -11,6 +11,12 @@ export default{
   data(){
     return{}
   },
+  created(){
+    console.log('profile created')
+  },
+  destroyed(){
+    console.log('profile destroyed')
+  },
   // created(){
   //   document.title= 'PROFILE'
   // },

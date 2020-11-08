@@ -19,10 +19,10 @@ const router = new VueRouter({
                 title: 'HOME'
             },
             children:[
-                {
-                    path:'',
-                    redirect: 'news'
-                },
+                // {
+                //     path:'',
+                //     redirect: 'news'
+                // },
                 {
                     path: 'news',
                     component: () => import ('../components/homeNews')
@@ -39,6 +39,10 @@ const router = new VueRouter({
             meta:{
                 title: 'ABOUT'
             },
+            beforeEnter: (to,from,next) => {
+                console.log('ABOUT beforeEnter')
+                next()
+            }
         },
         {
             path:'/profile',
@@ -46,14 +50,25 @@ const router = new VueRouter({
             meta:{
                 title: 'PROFILE'
             },
+            created(){
+                console.log('profile created')
+            },
+            destroyed(){
+                console.log('profile destroyed')
+            }
         }
     ],
     mode:'history'
 })
 
 router.beforeEach((to,from,next) => {
-    document.title = to.matched[0].meta.title
-    next()  
+    document.title = to.meta.title;
+    console.log('+++++++');
+    next()
+})
+
+router.afterEach((to,from) => {
+    console.log('-------');
 })
 
 export default router
